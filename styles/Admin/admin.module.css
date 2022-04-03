@@ -1,0 +1,14 @@
+.admin_con{
+    background-color: rgba(12, 123, 235, 0.1);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.admin_con h1{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hrline{
+    margin-bottom: 40px;
+}

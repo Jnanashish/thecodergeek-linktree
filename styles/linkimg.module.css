@@ -1,0 +1,17 @@
+.linkimg_con{
+    width: 100%;
+    margin: 0px auto;
+}
+
+.img{
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid rgb(42, 92, 167);
+}
+
+@media (min-width: 401px) {
+    .linkimg_con{
+        width: 60%;
+        /* height: 1000px; */
+    }   
+}
