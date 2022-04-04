@@ -42,3 +42,23 @@
     background-color: #0000ff;
     cursor: pointer;
 }
+
+
+.link_con {
+    background-color: #fff;
+    padding: 10px 20px;
+    margin: 20px auto;
+    width: 850px;
+}
+
+.link_con h3 {
+    margin: 0px;
+}
+
+.link_con button {
+    cursor: pointer;
+}
+
+.link_con h4 {
+    color: red;
+}

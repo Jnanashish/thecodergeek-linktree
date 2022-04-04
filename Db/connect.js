@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const connection = {}
-console.log(process.env.MONGODB_URI);
+
 async function connect(){
     if (connection.isConnected) {
         console.log("Connect to fdb");

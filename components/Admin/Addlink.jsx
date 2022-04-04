@@ -23,7 +23,6 @@ function Addlink() {
         if(res.status == 200){
             alert("Success")
         } else {
-            console.log(res);
             alert("ERROR")
         }
         setTitle('');

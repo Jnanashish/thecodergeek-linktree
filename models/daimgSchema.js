@@ -6,7 +6,10 @@ const daimgSchema = new mongoose.Schema({
     },
     totalclick:{
         type: Number
-    }
+    },    
+    link: {
+        type: String,
+    },
 })
 
 module.exports = mongoose.models.Daimg || mongoose.model('Daimg', daimgSchema)

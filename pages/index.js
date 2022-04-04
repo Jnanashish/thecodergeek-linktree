@@ -9,20 +9,21 @@ import Linkimg from '../components/Linkimg';
 
 
 export default function Home(props) {
-    const {linkdata} = props
-    console.log(linkdata );
+    const {linkdata, imgdata} = props
     return (
         <div className={styles.container}>
             <Header/>
-            <Linkcard/>
+            {linkdata.map((item) => {
+                return(
+                    <Linkcard key={item._id} title={item.title} link={item.link}/>
+                )
+            })}
+            
             <div>
-            {/* {linkimg.length > 0 && 
-                <Linkimg img={linkimg[0].img} link = {linkimg[0].link}/>
-            } */}
+            {imgdata.length > 0 && 
+                <Linkimg imagePath = {imgdata[0].imagePath} link = {imgdata[0].link}/>
+            }
             </div>
-            <Linkcard/>
-            <Linkcard/>
-            <Linkcard/>
             <Footer/>
         </div>
   )
@@ -33,9 +34,13 @@ export const getStaticProps = async () => {
     const res = await fetch('http://localhost:3000/api/links')
     const data = await res.json()
 
+    const imgres = await fetch('http://localhost:3000/api/daimg')
+    const imgdata = await imgres.json()
+
     return {
         props: {
             linkdata : data.link,
+            imgdata : imgdata.daimg
         }
     }
 }

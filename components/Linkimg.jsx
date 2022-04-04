@@ -8,7 +8,7 @@ function Linkimg(props) {
     return (
         <div className={styles.linkimg_con}>
             <a href={props.link}>
-                <img src={props.img} className={styles.img} alt="Da banner" />
+                <img src={props.imagePath} className={styles.img} alt="Da banner" />
             </a>
         </div>
     )
