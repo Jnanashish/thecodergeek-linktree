@@ -4,6 +4,11 @@
     margin: 20px auto;
     width: 850px;
 }
+@media (max-width: 601px) {
+    .link_con {
+        width: 100%;
+    }
+}
 
 .link_con h3{
     margin: 0px;

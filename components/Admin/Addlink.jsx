@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 
 // import styles
 import styles from "../../styles/Admin/addlink.module.css"
-import { API } from "../../backend"
 
 function Addlink() {
     const [title, setTitle] = useState('');

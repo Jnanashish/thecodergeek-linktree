@@ -1,7 +1,6 @@
 .adminpanel_title {
     font-size: 1.5rem;
     font-weight: bold;
-    /* text-align: center; */
     padding: 1rem 0;
     color: #000;
 }
@@ -9,6 +8,12 @@
 .admin_grid {
     display: grid;
     grid-template-columns: 25% 75%;
+}
+
+@media (max-width: 601px) {
+    .admin_grid {
+        grid-template-columns: 10% 90%;
+    }
 }
 
 .admin_label {
@@ -38,6 +43,12 @@
     border-radius: 4px;
 }
 
+@media (max-width: 601px) {
+    .admin_grid button {
+        width: 150px;
+    }
+}
+
 .admin_grid button:hover{
     background-color: #0000ff;
     cursor: pointer;
@@ -49,6 +60,11 @@
     padding: 10px 20px;
     margin: 20px auto;
     width: 850px;
+}
+@media (max-width: 601px) {
+    .link_con {
+        width: 100%;
+    }
 }
 
 .link_con h3 {

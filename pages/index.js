@@ -28,8 +28,8 @@ export default function Home(props) {
             <div className={styles.tab_con_lp}>
                 <button onClick={handlehomeclick}>Home</button>
                 <button onClick={handlehomeclick}>Job Feed</button>
-                <button>Instagram <b>(60k+)</b></button>
-                <button>Telegram <b>(7k+)</b></button>
+                <button><a href="https://www.instagram.com/thecodergeek">Instagram <b>(60k+)</b></a></button>
+                <button> <a href="https://t.me/interviewpreptech">Telegram <b>(7k+)</b></a></button>
             </div>
             <div className={styles.tab_con_mobile}>
                 <button onClick={handlehomeclick}>Home</button>
@@ -78,6 +78,7 @@ export const getStaticProps = async () => {
     return {
         props :{
             linkdata, imgdata, jdarr
-        }
+        },
+        revalidate: 10,
     }
 }

@@ -8,14 +8,14 @@ import Editlink from "../components/Admin/Editlink"
 import styles from "../styles/Admin/admin.module.css"
 
 const Admin = () => {
-    const [email, setEmail] = useState("jhandique1999@gmail.com");
-    const [password, setPassword] = useState("J2handique@");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [flag, setFlag] = useState(false);
     
     const handleclick = () =>{
         if(email == process.env.EMAIL && password == process.env.PASSWORD){
             setFlag(true)
-        }
+        } 
     }
 
     return(
