@@ -29,10 +29,10 @@ export default function Home(props) {
 
 
 export const getStaticProps = async () => {
-    const res = await fetch(`${API}/api/links`)
+    const res = await fetch(`https://desolate-brushlands-45412.herokuapp.com/api/links`)
     const linkdata = await res.json()     
 
-    const imgres = await fetch(`${API}/api/daimg`)
+    const imgres = await fetch(`https://desolate-brushlands-45412.herokuapp.com/api/daimg`)
     const imgdata = await imgres.json() 
 
     return {
