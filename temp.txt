@@ -1,0 +1,23 @@
+
+            <div>
+            {imgdata.length > 0 && 
+                <Linkimg imagePath = {imgdata[0].imagePath} link = {imgdata[0].link}/>
+            }
+            </div>
+
+
+                    try {
+            console.log("TRY");
+            console.log(title);
+            const collectionRef = collection(getdb, "links")
+            const docRef = await addDoc(collectionRef, {
+                title: "HELLO", 
+                link: "fewgih"
+            });
+            console.log("dgGQWUFGWEGGIEGHIUGQWHUIGQHUIHYUIGQHRIUQEIRHIUHUIHIQNJKBNQIUENUIH");
+            console.log(docRef);
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.log("FAIL");
+            console.error("Error adding document: ", e);
+        }

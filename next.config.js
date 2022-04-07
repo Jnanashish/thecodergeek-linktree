@@ -10,7 +10,10 @@ const nextConfig = {
   env: {
     PASSWORD: process.env.PASSWORD,
     EMAIL: process.env.EMAIL,
-  }
+  },
+  experiments: {
+    topLevelAwait: true,
+  },
 }
 
 module.exports = nextConfig

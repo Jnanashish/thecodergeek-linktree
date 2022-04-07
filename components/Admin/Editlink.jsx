@@ -6,15 +6,15 @@ function Editlink() {
     const [data, setData] = useState([])
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch('http://localhost:3000/api/links')
+            const res = await fetch('https://desolate-brushlands-45412.herokuapp.com/api/links')
             const temp = await res.json()
-            setData(temp.link)
+            setData(temp)
         }
         fetchData()
     }, [])
 
     const handleclick = (id) =>{
-        fetch(`http://localhost:3000/api/links/${id}`, { method: 'DELETE' })
+        fetch(`https://desolate-brushlands-45412.herokuapp.com/api/links/delete/${id}`, { method: 'DELETE' })
         .then((res) =>
             alert("Deleted")
         ) 

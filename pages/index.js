@@ -1,5 +1,5 @@
-import styles from '../styles/home.module.css'
-
+import styles from '../styles/home.module.css';
+import {API} from "../backend";
 
 // import components
 import Header from '../components/Header';
@@ -15,15 +15,13 @@ export default function Home(props) {
             <Header/>
             {linkdata.map((item) => {
                 return(
-                    <Linkcard key={item._id} title={item.title} link={item.link}/>
+                    <Linkcard id={item._id} key={item._id} title={item.title} link={item.link}/>
                 )
             })}
-            
-            <div>
+
             {imgdata.length > 0 && 
                 <Linkimg imagePath = {imgdata[0].imagePath} link = {imgdata[0].link}/>
-            }
-            </div>
+            }            
             <Footer/>
         </div>
   )
@@ -31,16 +29,15 @@ export default function Home(props) {
 
 
 export const getStaticProps = async () => {
-    const res = await fetch('http://localhost:3000/api/links')
-    const data = await res.json()
+    const res = await fetch(`${API}/api/links`)
+    const linkdata = await res.json()     
 
-    const imgres = await fetch('http://localhost:3000/api/daimg')
-    const imgdata = await imgres.json()
+    const imgres = await fetch(`${API}/api/daimg`)
+    const imgdata = await imgres.json() 
 
     return {
-        props: {
-            linkdata : data.link,
-            imgdata : imgdata.daimg
+        props :{
+            linkdata, imgdata
         }
     }
 }

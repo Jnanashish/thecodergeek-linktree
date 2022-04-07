@@ -4,41 +4,42 @@ import styles from "../../styles/Admin/addlink.module.css"
 
 const Adddaimg = () =>{
     const [link, setLink] = useState('');
-    const [imagePath, setImagePath] = useState('');
     const [data, setData] = useState([])
+
+    const formData = new FormData();  
+    const handleimginp = (e) =>{
+        const file = e.target.files ;
+        formData.append('photo', file[0]);
+    }
+
+    const addData = async (e) =>{
+        e.preventDefault();
+        formData.append("link", link)
+        const res = await fetch('https://desolate-brushlands-45412.herokuapp.com/api/daimg/add',{
+            method : "POST",
+            body : formData
+        })
+
+        if(res.status === 201){
+            alert('Data Added Successfully') 
+        } else {
+            alert("An error Occured")
+        }
+    }
+
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch('http://localhost:3000/api/daimg')
+            const res = await fetch('https://desolate-brushlands-45412.herokuapp.com/api/daimg')
             const temp = await res.json()
-            setData(temp.daimg)
+            setData(temp)
         }
         fetchData()
     }, [])
 
-    const addData = async (e) =>{
-        e.preventDefault();
-        let res = await fetch("http://localhost:3000/api/daimg", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                link : link,
-                imagePath: imagePath,
-            }),
-        });
-        if(res.status == 200){
-            alert("Success")
-        } else {
-            alert("ERROR")
-        }
-        setLink('');
-        setImagePath('')
-    }
 
     const handleclick = (id) =>{
-        fetch(`http://localhost:3000/api/daimg/${id}`, { method: 'DELETE' })
+        fetch(`https://desolate-brushlands-45412.herokuapp.com/api/daimg/delete/${id}`, { method: 'DELETE' })
         .then((res) =>
             alert("Deleted")
         ) 
@@ -51,14 +52,6 @@ const Adddaimg = () =>{
         <div>
         <form className="con">
             <div className = {styles.admin_grid}>
-                <div></div>
-                <a className = {styles.admin_input}  
-                    href="https://cloudinary.com/console/c-9cc2f94dd50e7fab18a4af23d9c442/"
-                    target="_blank" rel="noopener noreferrer">
-                    <b>Cloudinary 📡</b>
-                </a>
-            </div>
-            <div className = {styles.admin_grid}>
                 <h3 className = {styles.admin_label}>Link : </h3>
                 <input 
                     className = {styles.admin_input}  
@@ -69,16 +62,11 @@ const Adddaimg = () =>{
                 />
             </div>
             
-            <div className = {styles.admin_grid}>
-                <h3 className = {styles.admin_label}>Link of Poster : </h3>
-                <input 
-                    className = {styles.admin_input}  
-                    value = {imagePath}
-                    onChange = {(e) => setImagePath(e.target.value)}
-                    type="text" 
-                    placeholder = "Cloudinary link"
-                />
+            <div className={styles.admin_grid}> 
+                <h3 className={styles.admin_label}>Image for ad  : </h3> 
+                <input className={styles.admin_input} onChange = {handleimginp} name="image" type="file"/> 
             </div>
+
             <div className={styles.admin_grid}>
                 <div></div>
                 <div>             
