@@ -6,7 +6,6 @@ import Image from 'next/image'
 import logo from "../public/logo.png"
 import styles from "../styles/header.module.css"
 
-
 const Header = () => {
     return (
     <div>
